@@ -1,4 +1,3 @@
-
 package(default_visibility = ["//visibility:public"])
 
 load(
@@ -7,14 +6,13 @@ load(
 )
 
 haskell_library(
-  name = 'mtl_compat',
-  srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
+  name = 'mtl',
+  srcs = glob(['Control/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
-    "base","mtl"
+    "base", "transformers"
   ],
   deps = [
-
   ]
 )
 

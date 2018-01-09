@@ -13,7 +13,6 @@ haskell_library(
     "base", "stm"
   ],
   deps = [
-
   ]
 )
 

@@ -7,15 +7,20 @@ load(
 
 haskell_library(
   name = 'protolude',
+  src_strip_prefix = "src",
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
+
   # c_sources = glob(['cbits/**/*.c']),
+  compiler_flags = ["-XMultiParamTypeClasses","-XFlexibleContexts","-XOverloadedStrings","-XNoImplicitPrelude"],
   prebuilt_dependencies = [
-    "base","bytestring","mtl","text","array","ghc-prim","deepseq","containers","stm","transformers"
+    "base","bytestring","array","ghc-prim","deepseq","containers","stm","transformers",
+    "mtl"
   ],
   deps = [
     "@safe//:safe",
-    "@mtl_compat//:mtl_compat",
     "@async//:async",
+    "@text//:text",
+
     "@hashable//:hashable"
   ]
 )
