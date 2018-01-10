@@ -75,7 +75,23 @@ new_http_archive(
 
 
 
+new_http_archive(
+    name = "vector",
+    build_file = "vector.BUILD",
+    strip_prefix = "vector-0.12.0.1",
+    urls = [
+        "https://hackage.haskell.org/package/vector-0.12.0.1/vector-0.12.0.1.tar.gz"
+    ],
+)
 
+new_http_archive(
+    name = "primitive",
+    build_file = "primitive.BUILD",
+    strip_prefix = "primitive-0.6.2.0",
+    urls = [
+        "https://hackage.haskell.org/package/primitive-0.6.2.0/primitive-0.6.2.0.tar.gz"
+    ],
+)
 
 
 http_archive(
@@ -106,9 +122,16 @@ filegroup(
     "bin/ld.gold",
     "bin/dirname",
     "bin/realpath",
-    "lib/gcc/*/*/cc1"
+    "lib/gcc/*/*/cc1",
   ])
 )
+cc_library(
+  name = "threaded-rts",
+  srcs = glob(["lib/ghc-*/rts/libHSrts_thr-ghc*.so"]),
+  hdrs = glob(["lib/ghc-*/include/**/*.h"]),
+  strip_include_prefix = glob(["lib/ghc-*/include"], exclude_directories=0)[0],
+)
+
 """
 )
 
