@@ -12,7 +12,6 @@ cc_library(
   hdrs = glob(["cbits/*.h"]),
   deps = ["@ghc//:threaded-rts"],
   copts = ["-fomit-frame-pointer"]
-  #copts = ["-Iexternal/ghc/include"],
 )
 
 haskell_library(

@@ -12,14 +12,6 @@ cc_library(
   #copts = ["-Iexternal/text/include"],
 )
 
-filegroup(
-  name = "include-dirs",
-  data = glob([
-    "include/*",
-    "internal/*"
-  ])
-)
-
 
 haskell_library(
   name = 'vector',
@@ -31,7 +23,6 @@ haskell_library(
   ],
   deps = [
     ":cbits",
-    ":include-dirs",
     "@primitive//:primitive"
   ]
 
