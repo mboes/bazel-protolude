@@ -46,15 +46,6 @@ new_http_archive(
     ],
 )
 
-#new_http_archive(
-    #name = "stm",
-    #build_file = "stm.BUILD",
-    #strip_prefix = "stm-2.4.4.1",
-    #urls = [
-        #"https://hackage.haskell.org/package/stm-2.1.1.1/stm-2.4.4.1.tar.gz"
-    #],
-#)
-
 new_http_archive(
     name = "stm",
     build_file = "stm.BUILD",
@@ -87,22 +78,22 @@ new_http_archive(
 
 
 
-#http_archive(
-  #name = "io_tweag_rules_haskell",
-  #strip_prefix = "rules_haskell-0.2",
-  #urls = ["https://github.com/tweag/rules_haskell/archive/v0.2.tar.gz"]
-#)
-
-local_repository(
-    name = "io_tweag_rules_haskell",
-    path = "/home/redacted/src/rules_haskell",
+http_archive(
+  name = "io_tweag_rules_haskell",
+  strip_prefix = "rules_haskell-0.2",
+  urls = ["https://github.com/tweag/rules_haskell/archive/v0.2.tar.gz"]
 )
+
+#local_repository(
+    #name = "io_tweag_rules_haskell",
+    #path = "/home/redacted/src/rules_haskell",
+#)
 load("@io_tweag_rules_haskell//haskell:repositories.bzl", "haskell_repositories")
 haskell_repositories()
 
 new_local_repository(
   name = "ghc",
-  path = "/home/redacted/.stack/programs/x86_64-linux/ghc-tinfo6-nopie-8.2.2/",
+  path = "/usr/",
   build_file_content = """
 package(default_visibility = ["//visibility:public"])
 filegroup(
@@ -113,10 +104,14 @@ filegroup(
     "bin/gcc",
     "bin/as",
     "bin/ld.gold",
+    "bin/dirname",
+    "bin/realpath",
+    "/usr/lib/gcc/*/*/cc1"
   ])
 )
 """
 )
+
 register_toolchains(
   "//:ghc_toolchain",
 )

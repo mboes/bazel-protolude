@@ -17,10 +17,11 @@ haskell_library(
   compiler_flags = ["-XTypeSynonymInstances", "-DGENERICS"],
   # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
-    "base","ghc-prim","text","integer-gmp","bytestring"
+    "base","ghc-prim","integer-gmp","bytestring"
   ],
   deps = [
-    ":fnv"
+    ":fnv",
+    "@text//:text",
   ]
 )
 

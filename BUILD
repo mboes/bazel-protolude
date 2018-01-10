@@ -16,8 +16,6 @@ haskell_binary(
   name = "hello",
   srcs = ['Main.hs'],
   compiler_flags = [ "-XNoImplicitPrelude"],
-  #prebuilt_dependencies = ['protolude'],
   deps = ["@protolude//:protolude"],
-  #deps = ['@safe//:safe', "@async//:async"]
 )
 
