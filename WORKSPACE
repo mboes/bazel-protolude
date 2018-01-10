@@ -73,8 +73,6 @@ new_http_archive(
     ],
 )
 
-
-
 new_http_archive(
     name = "vector",
     build_file = "vector.BUILD",
@@ -96,8 +94,8 @@ new_http_archive(
 
 http_archive(
   name = "io_tweag_rules_haskell",
-  strip_prefix = "rules_haskell-0.2",
-  urls = ["https://github.com/tweag/rules_haskell/archive/v0.2.tar.gz"]
+  strip_prefix = "rules_haskell-master",
+  urls = ["https://github.com/adjoint-io/rules_haskell/archive/master.tar.gz"]
 )
 
 #local_repository(
@@ -125,6 +123,7 @@ filegroup(
     "lib/gcc/*/*/cc1",
   ])
 )
+
 cc_library(
   name = "threaded-rts",
   srcs = glob(["lib/ghc-*/rts/libHSrts_thr-ghc*.so"]),

@@ -16,6 +16,6 @@ haskell_binary(
   name = "hello",
   srcs = ['Main.hs'],
   compiler_flags = [ "-XNoImplicitPrelude"],
-  deps = ["@protolude//:protolude", "@vector//:vector"],
+  deps = ["@protolude//:protolude"],
 )
 
