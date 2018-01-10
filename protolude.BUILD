@@ -13,13 +13,14 @@ haskell_library(
   # c_sources = glob(['cbits/**/*.c']),
   compiler_flags = ["-XMultiParamTypeClasses","-XFlexibleContexts","-XOverloadedStrings","-XNoImplicitPrelude"],
   prebuilt_dependencies = [
-    "base","bytestring","array","ghc-prim","deepseq","containers","stm","transformers",
-    "mtl"
+    "base","bytestring","array","ghc-prim","deepseq","containers","transformers",
   ],
   deps = [
     "@safe//:safe",
     "@async//:async",
     "@text//:text",
+    "@mtl//:mtl",
+    "@stm//:stm",
 
     "@hashable//:hashable"
   ]

@@ -55,23 +55,23 @@ new_http_archive(
     #],
 #)
 
-#new_http_archive(
-    #name = "stm",
-    #build_file = "stm.BUILD",
-    #strip_prefix = "stm-2.4.4.1",
-    #urls = [
-        #"https://hackage.haskell.org/package/stm-2.1.1.1/stm-2.4.4.1.tar.gz"
-    #],
-#)
+new_http_archive(
+    name = "stm",
+    build_file = "stm.BUILD",
+    strip_prefix = "stm-2.4.4.1",
+    urls = [
+        "https://hackage.haskell.org/package/stm-2.4.4.1/stm-2.4.4.1.tar.gz"
+    ],
+)
 
-#new_http_archive(
-    #name = "mtl",
-    #build_file = "mtl.BUILD",
-    #strip_prefix = "mtl-2.2.1",
-    #urls = [
-        #"https://hackage.haskell.org/package/mtl-2.2.1/mtl-2.2.1.tar.gz"
-    #],
-#)
+new_http_archive(
+    name = "mtl",
+    build_file = "mtl.BUILD",
+    strip_prefix = "mtl-2.2.1",
+    urls = [
+        "https://hackage.haskell.org/package/mtl-2.2.1/mtl-2.2.1.tar.gz"
+    ],
+)
 
 new_http_archive(
     name = "text",
