@@ -106,7 +106,7 @@ filegroup(
     "bin/ld.gold",
     "bin/dirname",
     "bin/realpath",
-    "/usr/lib/gcc/*/*/cc1"
+    "lib/gcc/*/*/cc1"
   ])
 )
 """
