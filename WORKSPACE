@@ -120,7 +120,6 @@ filegroup(
     "bin/ld.gold",
     "bin/dirname",
     "bin/realpath",
-    "lib/gcc/*/*/cc1",
   ])
 )
 
