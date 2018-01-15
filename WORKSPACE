@@ -95,7 +95,7 @@ new_http_archive(
 http_archive(
   name = "io_tweag_rules_haskell",
   strip_prefix = "rules_haskell-master",
-  urls = ["https://github.com/adjoint-io/rules_haskell/archive/master.tar.gz"]
+  urls = ["https://github.com/tweag/rules_haskell/archive/master.tar.gz"]
 )
 
 #local_repository(
