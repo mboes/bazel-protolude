@@ -19,11 +19,12 @@ haskell_library(
   srcs = glob(['Control/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   #compiler_flags = ["-XCPP", "-XMultiParamTypeClasses", "-XFunctionalDependencies", "-XFlexibleInstances", "-Wall -fno-warn-unused-imports -fno-warn-warnings-deprecations -Wcompat -Wnoncanonical-monad-instances -Wnoncanonical-monadfail-instances"],
   prebuilt_dependencies = [
-    "base", "deepseq", "ghc-prim", "semigroups"
+    "base", "deepseq", "ghc-prim"
   ],
   deps = [
     ":cbits",
-    "@primitive//:primitive"
+    "@primitive//:primitive",
+    "@semigroups//:semigroups"
   ]
 
 )

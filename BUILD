@@ -15,7 +15,8 @@ haskell_toolchain(
 haskell_binary(
   name = "hello",
   srcs = ['Main.hs'],
-  compiler_flags = [ "-XNoImplicitPrelude"],
-  deps = ["@protolude//:protolude"],
+  #compiler_flags = [ "-XNoImplicitPrelude"],
+  prebuilt_dependencies = ["base", "bytestring"],
+  deps = ["@vector//:vector", "@semigroups//:semigroups", "@protolude//:protolude", "@primitive//:primitive" ],
 )
 

@@ -1,4 +1,3 @@
-
 package(default_visibility = ["//visibility:public"])
 load(
   "@io_tweag_rules_haskell//haskell:haskell.bzl",
@@ -11,7 +10,7 @@ cc_library(
   srcs = glob(["cbits/*.c"]),
   hdrs = glob(["cbits/*.h"]),
   deps = ["@ghc//:threaded-rts"],
-  copts = ["-fomit-frame-pointer"]
+  copts = ["-Iexternal/primitive/include"],
 )
 
 haskell_library(
