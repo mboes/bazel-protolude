@@ -303,14 +303,44 @@ cc_library(
 )
 
 haskell_library(
+  name = 'attoparsec-iso8601',
+  srcs = glob(['attoparsec-iso8601/**/*.hs']),
+  src_strip_prefix = "attoparsec-iso8601",
+  prebuilt_dependencies = [
+    "base", "bytestring", "time"
+    #"deepseq","template-haskell","time","bytestring","ghc-prim","base","containers"
+  ],
+  deps = [
+    "@attoparsec//:attoparsec",
+    "@base_compat//:base-compat",
+    "@text//:text",
+  ]
+)
+
+haskell_library(
+  name = 'aeson-unescape',
+  srcs = glob(['ffi/**/*.hs']),
+  src_strip_prefix = "ffi",
+  prebuilt_dependencies = [
+    "base", "bytestring"
+    #"deepseq","template-haskell","time","bytestring","ghc-prim","base","containers"
+  ],
+  deps = [
+    ":cbits",
+    "@text//:text",
+  ]
+)
+
+haskell_library(
   name = 'aeson',
-  srcs = glob(['src/**/*.hs', 'attoparsec-iso8601/**/*.hs' ,'Data/**/*.hs', 'pure/**/*.hs']),
+  srcs = glob(['Data/**/*.hs', 'include/*.h']),
   prebuilt_dependencies = [
     "deepseq","template-haskell","time","bytestring","ghc-prim","base","containers"
   ],
-  compiler_flags = [],
+  compiler_flags = ["-DCFFI", "-Iexternal/aeson/include"],
   deps = [
-    ":cbits",
+    ":attoparsec-iso8601",
+    ":aeson-unescape",
     "@dlist//:dlist",
     "@vector//:vector",
     "@text//:text",
@@ -463,8 +493,9 @@ load(
 )
 
 cc_library(
-  name = "fnv",
-  srcs = ["cbits/fnv.c"],
+  name = "cbits",
+  srcs = ["cbits/fnv.c", "cbits/getRandomBytes.c"],
+  deps = ["@ghc//:threaded-rts"],
 )
 
 haskell_library(
@@ -476,7 +507,7 @@ haskell_library(
     "base","ghc-prim","integer-gmp","bytestring", "deepseq"
   ],
   deps = [
-    ":fnv",
+    ":cbits",
     "@text//:text",
   ]
 )
