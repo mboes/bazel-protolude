@@ -42,7 +42,6 @@ load(
 haskell_library(
   name = 'random',
   srcs = glob(['System/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   compiler_flags = ["-XCPP"],
   prebuilt_dependencies = [
     "base","time"
@@ -72,7 +71,6 @@ haskell_library(
   name = 'integer-logarithms',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   src_strip_prefix = "src",
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "integer-gmp","ghc-prim","base","array"
   ],
@@ -99,7 +97,6 @@ load(
 haskell_library(
   name = 'attoparsec',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","array","bytestring","transformers","base","containers"
   ],
@@ -129,7 +126,6 @@ haskell_library(
   name = 'th-abstraction',
   src_strip_prefix = "src",
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "template-haskell","ghc-prim","base","containers"
   ],
@@ -158,7 +154,6 @@ load(
 haskell_library(
   name = 'uuid-types',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","bytestring","base","binary"
   ],
@@ -189,7 +184,6 @@ haskell_library(
   name = 'base-compat',
   src_strip_prefix = "src",
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "unix","base"
   ],
@@ -250,7 +244,6 @@ haskell_library(
   name = 'time-locale-compat',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   src_strip_prefix = "src",
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "base","time"
   ],
@@ -278,7 +271,6 @@ load(
 haskell_library(
   name = 'dlist',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","base"
   ],
@@ -354,7 +346,6 @@ load(
 haskell_library(
   name = 'bytestring_builder',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","base","bytestring"
   ],
@@ -382,7 +373,6 @@ load(
 haskell_library(
   name = 'unordered-containers',
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","base"
   ],
@@ -410,7 +400,6 @@ haskell_library(
   name = 'tagged',
   src_strip_prefix = "src",
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "deepseq","template-haskell","transformers","base"
   ],
@@ -440,7 +429,6 @@ haskell_library(
   src_strip_prefix = "src",
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
 
-  # c_sources = glob(['cbits/**/*.c']),
   compiler_flags = ["-XMultiParamTypeClasses","-XFlexibleContexts","-XOverloadedStrings","-XNoImplicitPrelude"],
   prebuilt_dependencies = [
     "base","bytestring","array","ghc-prim","deepseq","containers","transformers",
@@ -484,7 +472,6 @@ haskell_library(
   srcs = glob(['src/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   version = "1.2.6.1",
   compiler_flags = ["-XTypeSynonymInstances", "-DGENERICS"],
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "base","ghc-prim","integer-gmp","bytestring", "deepseq"
   ],
@@ -568,10 +555,6 @@ http_archive(
   urls = ["https://github.com/tweag/rules_haskell/archive/master.tar.gz"]
 )
 
-#local_repository(
-    #name = "io_tweag_rules_haskell",
-    #path = "/home/redacted/src/rules_haskell",
-#)
 load("@io_tweag_rules_haskell//haskell:repositories.bzl", "haskell_repositories")
 haskell_repositories()
 

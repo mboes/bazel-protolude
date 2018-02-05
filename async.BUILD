@@ -8,7 +8,6 @@ load(
 haskell_library(
   name = 'async',
   srcs = glob(['Control/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
-  # c_sources = glob(['cbits/**/*.c']),
   prebuilt_dependencies = [
     "base", "stm"
   ],
