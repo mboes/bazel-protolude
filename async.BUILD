@@ -9,9 +9,10 @@ haskell_library(
   name = 'async',
   srcs = glob(['Control/**/*.hs', 'lib/**/*.hs' ,'Data/**/*.hs']),
   prebuilt_dependencies = [
-    "base", "stm"
+    "base"
   ],
   deps = [
+    "@stm//:stm"
   ]
 )
 
